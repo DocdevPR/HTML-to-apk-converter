@@ -31,8 +31,15 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      
+      - name: Clean Android SDK command-line tools
+        run: |
+          rm -rf "$ANDROID_HOME/cmdline-tools/latest"
+          rm -rf "$ANDROID_HOME/cmdline-tools/12.0"
+
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
