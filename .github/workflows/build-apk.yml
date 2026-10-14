@@ -24,6 +24,7 @@ jobs:
           fi
           unzip -q "$ZIP" -d source
 
+      
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
@@ -34,9 +35,10 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.7'
+        
 
       - name: Build debug APK
         run: gradle assembleDebug
